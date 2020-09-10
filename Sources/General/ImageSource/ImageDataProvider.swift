@@ -30,9 +30,11 @@ import Foundation
 /// `Source.provider` source. Compared to `Source.network` member, it gives a chance
 /// to load some image data in your own way, as long as you can provide the data
 /// representation for the image.
+/// 图像数据提供者
 public protocol ImageDataProvider {
     
     /// The key used in cache.
+    /// 缓存中使用的键。
     var cacheKey: String { get }
     
     /// Provides the data which represents image. Kingfisher uses the data you pass in the

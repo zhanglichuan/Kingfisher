@@ -36,6 +36,7 @@ import CoreServices
 #endif
 
 /// A data provider to provide thumbnail data from a given AVKit asset.
+/// 资产图像数据提供者(这个应该类似本地图片资源)
 public struct AVAssetImageDataProvider: ImageDataProvider {
 
     /// The possible error might be caused by the `AVAssetImageDataProvider`.

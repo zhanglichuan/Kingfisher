@@ -29,12 +29,15 @@ import Foundation
 /// Represents an image resource at a certain url and a given cache key.
 /// Kingfisher will use a `Resource` to download a resource from network and cache it with the cache key when
 /// using `Source.network` as its image setting source.
+/// 图片资源
 public protocol Resource {
     
     /// The key used in cache.
+    /// 缓存key
     var cacheKey: String { get }
     
     /// The target image URL.
+    /// 图片URL
     var downloadURL: URL { get }
 }
 
@@ -43,7 +46,9 @@ extension Resource {
     /// Converts `self` to a valid `Source` based on its `downloadURL` scheme. A `.provider` with
     /// `LocalFileImageDataProvider` associated will be returned if the URL points to a local file. Otherwise,
     /// `.network` is returned.
+    /// 转换资源
     public func convertToSource() -> Source {
+        // 如果是file类型，
         return downloadURL.isFileURL ?
             .provider(LocalFileImageDataProvider(fileURL: downloadURL, cacheKey: cacheKey)) :
             .network(self)
